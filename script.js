@@ -84,21 +84,17 @@ function updateDisplay (weatherData) {
 }
 
 //display 5 day forecast
-function fiveDayForecast() {
+function fiveDayForecast(weatherData) {
     var forecastWeather = weatherData.list;
-    for (var i = 1; i < 6; i++)
-    console.log(weatherData.list);
-    var dailyWeather = forecastWeather[i];
-    dailyWeather.attr("class", "card bg-primary text-light m-2")
-    console.log(dailyWeather);
+    for (var i = 1  5; i < 6; i++);
+    forecast.temperature.unit(weatherData.name);
+    forecast.humidity.unit("%");
     
 }
 
-    
+${windDay + i}
+${humidityDay + i}
 
-
-
-
-
+                        
 //click handlers
 searchButton.on('click', searchCity);

@@ -1,18 +1,17 @@
 //setting variables
 var city = "";
 var cityHeader = $("#city-header");
+var currentDay = $("#currentday")
 var citySearch = $("#city-search");
 var cityName = $("#city-name");
 var todayWeather = $("#today-weather");
+var forecastData = $("forecase-data");
 var searchButton = $("#search-button");
 var temp = $("#temperature");
 var humidity = $("#humidity");
 var wind = $("#wind");
 var uv = $("#uv-index");
 
-// jQuery(document).ready(function() {
-
-// }
 //save search history to storage 
 var cityHistory = [];
 
@@ -58,16 +57,15 @@ function searchCity() {
         updateDisplay(weatherData)
     });
 
-
 }
 
-function displayWeatherData() {
+function currentDate() {
     var currentDay = moment().format("MMMM Do YYYY");
-    $("#currentDay").text(currentDay);
-    console.log(currentDay);
+    $("#currentday").text(currentDay);
+    console.log(currentDate);
 }
 
-
+//display current forecast
 function updateDisplay (weatherData) {
     cityHeader.text(weatherData.name);
     console.log(weatherData.name);
@@ -83,7 +81,24 @@ function updateDisplay (weatherData) {
         uv.attr("class", "bg-success rounded")
         uv.text(data.current.uvi)
     })
-
 }
+
+//display 5 day forecast
+function fiveDayForecast() {
+    var forecastWeather = weatherData.list;
+    for (var i = 1; i < 6; i++)
+    console.log(weatherData.list);
+    var dailyWeather = forecastWeather[i];
+    dailyWeather.attr("class", "card bg-primary text-light m-2")
+    console.log(dailyWeather);
+    
+}
+
+    
+
+
+
+
+
 //click handlers
 searchButton.on('click', searchCity);

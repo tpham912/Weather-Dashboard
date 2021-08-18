@@ -1,7 +1,6 @@
 //setting variables
 var city = "";
 var cityHeader = $("#city-header");
-var currentDay = $("#currentday")
 var citySearch = $("#city-search");
 var cityName = $("#city-name");
 var todayWeather = $("#today-weather");
@@ -53,16 +52,17 @@ function searchCity() {
         //     saveCityToHistory(city);
         //     updateDisplay(weatherData);
         // }
-        console.log(weatherData)
-        updateDisplay(weatherData)
+        console.log(weatherData);
+        currentDate();
+        updateDisplay(weatherData);
     });
 
 }
 
 function currentDate() {
     var currentDay = moment().format("MMMM Do YYYY");
-    $("#currentday").text(currentDay);
-    console.log(currentDate);
+    $("#current-day").text(currentDay);
+    console.log(currentDay);
 }
 
 //display current forecast
@@ -77,23 +77,29 @@ function updateDisplay (weatherData) {
     fetch(oneCallURL)
     .then(response => response.json())
     .then(data => {
-        console.log(data)
-        uv.attr("class", "bg-success rounded")
-        uv.text(data.current.uvi)
-    })
+        console.log(data);
+        uv.attr("class", "bg-success rounded");
+        uv.text(data.current.uvi);
+        fiveDayForecast(data);
+
+    });
 }
+
 
 //display 5 day forecast
 function fiveDayForecast(weatherData) {
-    var forecastWeather = weatherData.list;
-    for (var i = 1  5; i < 6; i++);
-    forecast.temperature.unit(weatherData.name);
-    forecast.humidity.unit("%");
+    //forecastWeather = weatherData.list;
+    console.log(weatherData);
+    for (var i = 1; i < 6; i++) {
+        $("#temp" + i).text(weatherData.daily[i].temp.day);
+        $("#humidity" + i).text(weatherData.daily[i].humidity);
+        $("#wind" + i).text(weatherData.daily[i].wind_speed);
+    }
+    //forecast.temperature.unit(weatherData.name);
+    //forecast.humidity.unit("%");
     
 }
 
-${windDay + i}
-${humidityDay + i}
 
                         
 //click handlers

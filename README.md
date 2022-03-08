@@ -3,8 +3,8 @@ The weather dasboard app is designed for travelers to check for weather outlook 
 
 # URL
 
-GitHub repo link: https://tpham912.github.io/Weather-Dashboard/
+Deployed link: https://tpham912.github.io/Weather-Dashboard/
 
-Deployed link: https://github.com/tpham912/Weather-Dashboard
+GitHub repo link: https://github.com/tpham912/Weather-Dashboard
 
 <img src="127.0.0.1_5501_index.html.png" alt="dashboard-sc">
